@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Booking System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #565a5b;
+        }
+
+        header {
+            background-image: url('Picture1.jpg');
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        nav {
+            background-color: #333;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+
+
+        .hero h1 {
+            font-size: 3em;
+        }
+
+        .section {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .section h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .book-now-button {
+            background-color: #28a745;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .book-now-button:hover {
+            background-color: #218838;
+        }
+
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-list {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+        }
+
+        .service-list li {
+            padding: 10px;
+            font-size: 1.1em;
+        }
+
+        .service-list li:before {
+            content: "✔️ ";
+            color: #28a745;
+        }
+        form {
+            margin: 0 auto;
+            max-width: 500px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: gray;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+        }
+        input[type="text"], input[type="email"], input[type="tel"], input[type="room_type"], input[type="pax"], input[type="date"], input[type="time"], textarea {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0 15px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .error {
+            color: red;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>"Daughter's And Son's Staycation Booking"</h1>
+        <p>Book your next service quickly and easily</p>
+    </header>
+
+    <nav>
+        <a href="homepage.html">Home</a>
+        <a href="booking_system.html">Book Now</a>
+    </nav>
+<br><br>
+
+    <form action="insert.php" method="POST">
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" required>
+        <span class="error"><?php echo $nameErr; ?></span><br>
+
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" required>
+        <span class="error"><?php echo $emailErr; ?></span><br>
+
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" required>
+        <span class="error"><?php echo $phoneErr; ?></span><br>
+        
+        <label for="room_type">Room Type:</label>
+        <select id="room_type" name="room_type" required>
+            <option value="">Select Room Type</option>
+            <option value="Snow Game Hub">Snow Game Hub</option>
+            <option value="Rose Cozy Room">Rose Cozy Room</option>
+            <option value="Zac Gaming Room">Zac Gaming Room</option>
+        </select>
+        <span class="error"><?php echo $roomErr; ?></span><br><br>
+
+        <label for="pax">Number of People (PAX):</label>
+        <input type="number" id="pax" name="pax" min="1" max="10" required>
+        <span class="error"><?php echo $paxErr; ?></span><br>
+
+        <label for="date">Booking Date:</label>
+        <input type="date" id="date" name="date" required>
+        <span class="error"><?php echo $dateErr; ?></span><br>
+
+        <label for="time">Booking Time:</label>
+        <input type="time" id="time" name="time" required>
+        <span class="error"><?php echo $timeErr; ?></span><br>
+
+        <label for="message">Special Requests:</label>
+        <textarea id="message" name="message"></textarea><br>
+
+        <button type="submit">Book Now</button>
+    </form>
+
+</body>
+</html>
